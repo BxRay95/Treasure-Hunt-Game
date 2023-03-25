@@ -59,7 +59,11 @@ const App = () => {
       "?"
     ]);
     setTreasureLocation(Math.floor(Math.random() * board.length));
-    setBombLocation(Math.floor(Math.random() * board.length));
+    let newBombLocation = Math.floor(Math.random() * board.length);
+    while (newBombLocation === treasureLocation) {
+      newBombLocation = Math.floor(Math.random() * board.length);
+    }
+    setBombLocation(newBombLocation);
     setGameOver(false);
     setGameResult("");
   };
